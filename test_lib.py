@@ -114,6 +114,13 @@ def test_dll_delete():
     assert dll.head == dll.tail == 2
 
 
+def test_dll_is_iterable():
+    dll = DLL([1, 2, 3, 4, 5])
+
+    for i, val in enumerate(dll, 1):
+        assert i == val
+
+        
 def test_karatsuba():
     first = 1565120651
     second = 1565130951
