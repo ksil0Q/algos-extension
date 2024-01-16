@@ -5,3 +5,6 @@ The goal of the project is to practice writing extensions for python and, possib
 to build a library:
 
 > python setup.py install
+
+
+The C part was tested using memwatch (https://sourceforge.net/projects/memwatch), the python part using pytest
