@@ -1,4 +1,6 @@
 import pytest
+import threading
+
 
 from FastAlgos import DLL, karatsuba, knuth_morris_pratt
 
@@ -156,3 +158,37 @@ def test_knuth_morris_pratt_raises():
 
     with pytest.raises(TypeError):
         knuth_morris_pratt(text, pattern)
+
+
+# def multithreading_kmp_test(text: str, pattern: str) -> None:
+#     a = knuth_morris_pratt(text, pattern)
+#     print(a)
+
+
+# def multithreading_karatsuba_test(first: int, second: int) -> None:
+#     a = karatsuba(first, second)
+#     print(a)
+
+
+# if __name__ == '__main__':
+    
+    # t1 = threading.Thread(target=multithreading_kmp_test, args=('asrnaocvepromgoismweroingxkzmfepojgeposdlfv', 'weroing'))
+    # t2 = threading.Thread(target=multithreading_kmp_test, args=('sjdbnowpeokfjueruawldirnvieruerudvbsic,pqweofjerugnieunvcwmpc', 'erugn'))
+    # t3 = threading.Thread(target=multithreading_kmp_test, args=('apowjfrunvalskmcwoourbaemcweofjobairuvnidimcaope3jkoifwrgnbaeieubvk;asm;efwibn', 'baei'))
+    # t4 = threading.Thread(target=multithreading_kmp_test, args=('wertyuiosdfghjklxcvbnmertyhujklbvnckiusdjcvnaoiurbgusbdcnw', 'sbdcnw'))
+
+    # t1 = threading.Thread(target=multithreading_karatsuba_test, args=(123422, 432147))
+    # t2 = threading.Thread(target=multithreading_karatsuba_test, args=(754383, 348334))
+    # t3 = threading.Thread(target=multithreading_karatsuba_test, args=(936524, 386528))
+    # t4 = threading.Thread(target=multithreading_karatsuba_test, args=(105825, 902651))
+
+    # t1.start()
+    # t2.start()
+    # t3.start()
+    # t4.start()
+
+    
+    # t1.join()
+    # t2.join()
+    # t3.join()
+    # t4.join()

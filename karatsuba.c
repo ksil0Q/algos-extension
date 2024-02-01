@@ -8,6 +8,8 @@
 
 static long long karatsuba(long long first, long long second)
 {
+    //super simply implementation, used only for example
+    
     if (first == 0 || second == 0)
         return 0;
 
@@ -46,7 +48,11 @@ PyObject* karatsuba_ex(PyObject* self, PyObject* args){
         PyErr_SetString(PyExc_TypeError, "arguments must be integers");
         return NULL;
     }
-    long long result = karatsuba(first, second);
+    long long result;
+
+    Py_BEGIN_ALLOW_THREADS // release GIL before computations
+    result = karatsuba(first, second);
+    Py_END_ALLOW_THREADS // reacquire GIL
 
     return Py_BuildValue("L", result);
 }

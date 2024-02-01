@@ -73,17 +73,24 @@ PyObject* knuth_morris_pratt_ex(PyObject* self, PyObject* args)
         PyErr_SetString(PyExc_TypeError, "arguments must be strings");
         return NULL;
     }
+    int result = - 1;
 
-    int result = knuth_morris_pratt(text, pattern);
-    
+    Py_BEGIN_ALLOW_THREADS // release GIL before computations
+
+    result = knuth_morris_pratt(text, pattern);
+
     free(text);
-    free(pattern);
+    free(pattern); // free memory before GIL acquiring
+
+    Py_END_ALLOW_THREADS // reacquire GIL
+    
 
     if (result < 0)
     {
         PyErr_SetString(PyExc_ValueError, "no given substring in text");
         return NULL;
     }
+
     return Py_BuildValue("i", result);
 }
 
